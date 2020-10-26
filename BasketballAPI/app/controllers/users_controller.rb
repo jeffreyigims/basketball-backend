@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+<<<<<<< Updated upstream
   swagger_controller :users, "User Management"
 
   swagger_api :index do
@@ -48,6 +49,8 @@ class UsersController < ApplicationController
     response :not_acceptable
   end
 
+=======
+>>>>>>> Stashed changes
   before_action :set_user, only: [:show, :update, :destroy]
 
   def index
@@ -55,8 +58,17 @@ class UsersController < ApplicationController
     render json: @users
   end
 
+<<<<<<< Updated upstream
   def create
     @user = User.new(user_params)
+=======
+  def show
+    render json: @user
+  end
+
+  def create
+    @user = user.new(user_params)
+>>>>>>> Stashed changes
     if @user.save
       render json: @user
     else
@@ -64,10 +76,13 @@ class UsersController < ApplicationController
     end
   end
 
+<<<<<<< Updated upstream
   def show
     render json: @user
   end
 
+=======
+>>>>>>> Stashed changes
   def update
     if @user.update(user_params)
       render json: @user
@@ -89,6 +104,13 @@ class UsersController < ApplicationController
   end
 
   def user_params
+<<<<<<< Updated upstream
     params.permit(:firstname, :lastname, :email, :username, :dob, :phone, :password, :password_confirmation)
   end
 end
+=======
+    params.permit(:username, :firstname, :lastname, :email, :phone, :dob, :password, :password_confirmation)
+  end
+
+end
+>>>>>>> Stashed changes
